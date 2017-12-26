@@ -1,0 +1,247 @@
+/**
+ *------
+ * BGA framework: © Gregory Isabelli <gisabelli@boardgamearena.com> & Emmanuel Colin <ecolin@boardgamearena.com>
+ * Alveole implementation : © Cédric Leclinche <cedric@devoreve.com>
+ *
+ * This code has been produced on the BGA studio platform for use on http://boardgamearena.com.
+ * See http://en.boardgamearena.com/#!doc/Studio for more information.
+ * -----
+ *
+ * alveole.css
+ *
+ * Alveole stylesheet
+ *
+ */
+
+/*
+    This is the CSS stylesheet of your game User Interface.
+    
+    Styles defined on this file will be applied to the HTML elements you define in your
+    HTML template (alveole_alveole.tpl), and to HTML elements you create dynamically
+    (in alveole.js).
+    
+    Usually, you are using CSS to:
+    
+    1°) define the overall layout of your game
+        (ex: place the board on the top left, place player's hand beside, place the deck on the right, ...).
+
+    2°) create your CSS-sprites:
+        All images of your games should be gathered into a small number of image files. Then, using
+        background-image and background-position CSS properties, you create HTML blocks that can 
+        display these images correctly (see example below).
+    
+    3°) ... anything else:
+        It is really easy to add and remove CSS classes dynamically from your Javascript with
+        dojo.addClass and dojo.removeClass. It is also easy to check if an element has a class
+        (dojo.hasClass) or to get all elements with a specific class (dojo.query). This is why,
+        very often, using CSS classes for the logic of your user interface allow you to do complex
+        thing easily.
+        
+        
+     Note: on the production platform, this file will be compressed and comments will be removed.
+           Consequently, don't hesitate to put as many comments as necessary.
+*/
+
+@import url(../../../css/csslayer.css); /* Note: you must not use any @import directive other than this one */
+
+/********* You can start writing your CSS below this line: **********/
+
+
+/**
+ *------
+ * BGA framework: © Gregory Isabelli <gisabelli@boardgamearena.com> & Emmanuel Colin <ecolin@boardgamearena.com>
+ * Alveole implementation : © <Cedric Leclinche> <cedric.leclinche@gmail.com>
+ *
+ * This code has been produced on the BGA studio platform for use on http://boardgamearena.com.
+ * See http://en.boardgamearena.com/#!doc/Studio for more information.
+ * -----
+ *
+ * alveole.css
+ *
+ * Alveole stylesheet
+ *
+ */
+
+/*
+    This is the CSS stylesheet of your game User Interface.
+
+    Styles defined on this file will be applied to the HTML elements you define in your
+    HTML template (kwartz_kwartz.tpl), and to HTML elements you create dynamically
+    (in kwartz.js).
+
+    Usually, you are using CSS to:
+
+    1°) define the overall layout of your game
+        (ex: place the board on the top left, place player's hand beside, place the deck on the right, ...).
+
+    2°) create your CSS-sprites:
+        All images of your games should be gathered into a small number of image files. Then, using
+        background-image and background-position CSS properties, you create HTML blocks that can
+        display these images correctly (see example below).
+
+    3°) ... anything else:
+        It is really easy to add and remove CSS classes dynamically from your Javascript with
+        dojo.addClass and dojo.removeClass. It is also easy to check if an element has a class
+        (dojo.hasClass) or to get all elements with a specific class (dojo.query). This is why,
+        very often, using CSS classes for the logic of your user interface allow you to do complex
+        thing easily.
+
+
+     Note: on the production platform, this file will be compressed and comments will be removed.
+           Consequently, don't hesitate to put as many comments as necessary.
+*/
+
+@import url(../../../css/csslayer.css); /* Note: you must not use any @import directive other than this one */
+
+/********* You can start writing your CSS below this line: **********/
+
+
+/*
+    Example of CSS sprites (a black token and a white token, 20x20px each, embedded in the same "tokens.png" 40x20px image):
+
+    .white_token {
+        background-image: url('img/tokens.png');
+        background-position: 0px 0px;
+    }
+    .black_token {
+        background-image: url('img/tokens.png');
+        background-position: -20px 0px;
+    }
+    .token {
+        width: 20px;
+        height: 20px;
+        background-repeat: none;
+    }
+*/
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#board {
+    position: relative;
+    left: -18px;
+    margin: auto;
+    height: 460px;
+    width: 400px;
+    margin-top: 40px;
+}
+
+.hex {
+    height: 52px;
+    width: 30px;
+    background-color: #E5D39E;
+    margin-left: 15px;
+    position: absolute;
+    text-align: center;
+}
+
+.hex span {
+    opacity: 0.2;
+    line-height: 52px;
+    width: 30px;
+}
+
+.hex:before {
+    content: " ";
+    border-right: 15px solid #E5D39E;
+    border-top: 26px solid transparent;
+    border-bottom: 26px solid transparent;
+    position: absolute;
+    left: -15px;
+}
+
+.hex:after {
+    content: " ";
+    border-left: 15px solid #E5D39E;
+    border-top: 26px solid transparent;
+    border-bottom: 26px solid transparent;
+    right: -15px;
+    position: absolute;
+}
+
+.hex.possible-move {
+    /*background-color: #32CD32;*/
+    background-color: #84b02e;
+    /*background-color: #745f1f;*/
+    /*background-color: #8ca006;*/
+    z-index: 1000;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.hex.possible-move:before {
+    /*border-right: 15px solid #32CD32;*/
+    border-right: 15px solid #84b02e;
+    /*border-right: 15px solid #745f1f;*/
+    /*border-right: 15px solid #8ca006;*/
+}
+
+.hex.possible-move:after {
+    /*border-left: 15px solid #32CD32;*/
+    border-left: 15px solid #84b02e;
+    /*border-left: 15px solid #745f1f;*/
+    /*border-left: 15px solid #8ca006;*/
+}
+
+.token {
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    z-index: 100;
+}
+
+.token-blue {
+    background: radial-gradient(circle at 10px 10px, #5cabff, #13365E);
+}
+
+.token-red {
+    background: radial-gradient(circle at 10px 10px, #ff1a00, #6B1006);
+}
+
+.token.active {
+    -moz-transform: translate(-4px, -4px);
+    -webkit-transform: translate(-4px, -4px);
+    -o-transform: translate(-4px, -4px);
+    transform: translate(-4px, -4px);
+    box-shadow: 3px 5px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 3px 5px 2px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 3px 5px 2px rgba(0,0,0,0.6);
+    -o-box-shadow: 3px 5px 2px rgba(0,0,0,0.6);
+    z-index: 1100;
+}
+
+.token.moving {
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.hex.last-move {
+    background-color: #5a2eb0;
+    opacity: 0.5;
+}
+
+.hex.last-move:before {
+    border-right: 15px solid #5a2eb0;
+}
+
+.hex.last-move:after {
+    border-left: 15px solid #5a2eb0;
+}
+
+#toolbar {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+
+
